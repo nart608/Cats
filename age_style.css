@@ -1,0 +1,95 @@
+body {
+    background: linear-gradient(to bottom, #fee9f2, #fddde8);
+    font-family: 'Mitr', sans-serif;
+    color: #a55a71;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.age-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* --- เพิ่มโค้ดส่วนนี้ --- */
+.photo-container {
+    position: relative; /* ทำให้เป็นจุดอ้างอิงของปุ่ม */
+    width: 250px; /* กำหนดขนาด container ของรูป */
+    margin: 0 auto 20px auto; /* จัดกลางและเว้นระยะล่าง */
+}
+
+/* --- แก้ไขโค้ดส่วนนี้ --- */
+.main-photo {
+    width: 100%;
+    border-radius: 15px; /* ทำให้เป็นสี่เหลี่ยมมน */
+    object-fit: cover;
+    border: 3px solid #ffdde5;
+    display: block;
+}
+
+/* --- แก้ไขโค้ดส่วนนี้ทั้งหมด --- */
+.view-calendar-btn {
+    position: absolute; /* ทำให้ปุ่มลอยได้ */
+    bottom: 10px; /* จัดให้อยู่ด้านล่างของรูป */
+    left: 50%; /* จัดให้อยู่แนวนอนกึ่งกลาง */
+    transform: translateX(-50%); /* ทำให้กึ่งกลางพอดี */
+    
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    color: #a55a71;
+    padding: 8px 15px; /* ลดขนาดปุ่ม */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 0.8rem; /* ลดขนาดตัวอักษร */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความตกบรรทัด */
+}
+
+h2 {
+    color: #ff7d9e;
+    margin: 20px 0 5px 0;
+}
+p {
+    margin: 0 0 20px 0;
+}
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.time-box {
+    background: #ffe8ee;
+    padding: 15px;
+    border-radius: 10px;
+}
+.time-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff7d9e;
+}
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    color: #a55a71;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    z-index: 100;
+}

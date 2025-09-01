@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Song</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="music_style.css">
+</head>
+<body>
+    <audio id="audioPlayer" src="pink.mp3"></audio>
+
+    <div class="player-container">
+        <div class="artwork-column">
+            <div class="vinyl-record">
+                <img src="3.jpg" class="album-art" alt="Album Art">
+            </div>
+        </div>
+
+        <div class="controls-column">
+            <h2 class="song-title">Pink</h2>
+            <p class="artist-name">Blackbeans</p>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="time-display">
+                <span class="current-time">0:00</span>
+                <span class="duration">0:00</span>
+            </div>
+
+            <div class="player-controls">
+                <button id="playPauseBtn">►</button>
+            </div>
+        </div>
+    </div>
+    <a href="page3.html" class="back-button">⇦ กลับ</a>
+
+    <div id="lightbox-overlay" class="hidden"></div>
+    <div id="lightbox" class="hidden">
+        <span class="close-btn"><i class="fas fa-times"></i></span>
+        <img src="" class="lightbox-image" alt="Moment Photo">
+        </div>
+
+    <script src="music_script.js"></script>
+</body>
+</html>

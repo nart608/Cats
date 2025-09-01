@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(to bottom, #fee9f2, #fddde8);
+    font-family: 'Mitr', sans-serif;
+    color: #a55a71;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+h2, p { text-align: center; }
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 400px;
+}
+.card {
+    width: 100%;
+    padding-top: 100%; /* ทำให้เป็นสี่เหลี่ยมจัตุรัส */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+.card.flipped { transform: rotateY(180deg); }
+.card-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-front {
+    background-color: #ffdde5;
+    background-image: url('จับคู.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+}
+.card-back img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.win-message {
+    margin-top: 20px;
+    text-align: center;
+}
+.win-message.hidden { display: none; }
+.win-message p { font-size: 1.5rem; color: #ff7d9e; }
+#resetBtn {
+    background: #ff7d9e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 1rem;
+}
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    color: #a55a71;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+

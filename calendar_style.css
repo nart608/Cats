@@ -1,0 +1,122 @@
+body {
+    background: linear-gradient(to bottom, #fee9f2, #fddde8);
+    font-family: 'Mitr', sans-serif;
+    color: #a55a71;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+.calendar-container {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+.header-bar {
+    background-color: #ff7d9e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.header-bar h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    text-fill-color: unset;
+    text-shadow: none;
+    letter-spacing: normal;
+    color: white;
+}
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.month-card {
+    background: #ffe8ee;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+.top-bar {
+    background-color: #ffb3c1;
+    padding: 8px 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: left;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.top-bar p {
+    margin: 0;
+}
+.month-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+.bottom-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+.bottom-info i {
+    font-size: 1.2em;
+}
+.bottom-info p {
+    margin: 0;
+    font-weight: bold;
+}
+.month-card:hover img {
+    transform: scale(1.05);
+}
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    color: #a55a71;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

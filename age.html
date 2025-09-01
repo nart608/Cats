@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Girl</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #fee9f2, #fddde8);
+            font-family: 'Mitr', sans-serif;
+            color: #a55a71;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* จัดกลางเพื่อให้ดูสมดุล */
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .age-container {
+            background: white;
+            padding: 25px; /* <--- ลด padding */
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 380px; /* <--- ลดความกว้างสูงสุด */
+        }
+        .photo-container {
+            position: relative;
+            width: 200px; /* <--- ลดขนาด container รูป */
+            margin: 0 auto 15px auto;
+        }
+        .main-photo {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #ffdde5;
+            display: block;
+        }
+        .view-calendar-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            color: #FFFFFF;
+            padding: 8px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        h2 {
+            color: #ff7d9e;
+            margin: 15px 0 5px 0; /* <--- ลดระยะห่าง */
+            font-size: 1.5rem; /* <--- ลดขนาดตัวอักษร */
+        }
+        p {
+            margin: 0 0 15px 0; /* <--- ลดระยะห่าง */
+            font-size: 0.9rem;
+        }
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px; /* <--- ลดระยะห่าง */
+        }
+        .time-box {
+            background: #ffe8ee;
+            padding: 10px; /* <--- ลด padding */
+            border-radius: 10px;
+        }
+        .time-box span {
+            display: block;
+            font-size: 1.5rem; /* <--- ลดขนาดตัวเลข */
+            font-weight: bold;
+            color: #ff7d9e;
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: #a55a71;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="age-container">
+        <div class="photo-container">
+            <img src="3.jpg" class="main-photo" alt="Birthday Photo">
+            <button class="view-calendar-btn" onclick="window.location.href='calendar.html'">
+                <i class="fas fa-calendar-alt"></i> View Calendar
+            </button>
+        </div>
+        <h2>Birth day to my dear </h2>
+        <p>✨วันเกิดปีนี้อายุเท่าไหร่เเล้วหน้า✨</p>
+        <div class="countdown-grid">
+            <div class="time-box"><span id="years">0</span>ปี</div>
+            <div class="time-box"><span id="months">0</span>เดือน</div>
+            <div class="time-box"><span id="days">0</span>วัน</div>
+            <div class="time-box"><span id="hours">0</span>ชั่วโมง</div>
+            <div class="time-box"><span id="minutes">0</span>นาที</div>
+            <div class="time-box"><span id="seconds">0</span>วินาที</div>
+        </div>
+    </div>
+    <a href="page3.html" class="back-button">⇦ กลับ</a>
+    <script src="age_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    background: #fbdcdc;
+    font-family: 'Sriracha', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.note-paper {
+    background: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    line-height: 1.8;
+    color: #555;
+}
+h2 {
+    color: #ff7d9e;
+    text-align: center;
+}
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'Mitr', sans-serif;
+    background-color: white;
+    color: #a55a71;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
