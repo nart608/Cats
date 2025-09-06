@@ -1,3 +1,14 @@
+/* ====================================================== */
+/* === นี่คือโค้ดฉบับสมบูรณ์สำหรับ music_style.css === */
+/* ====================================================== */
+
+/* --- ส่วนที่เพิ่มเข้ามาใหม่ เพื่อให้แน่ใจว่าทำงานถูกต้อง --- */
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* --- สไตล์ดั้งเดิมของคุณ --- */
 body {
     background: #121212;
     font-family: 'Mitr', sans-serif;
@@ -84,28 +95,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-#playPauseBtn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    display: grid;
-    place-items: center;
-    transform: translateX(2px);
-    outline: none !important;
-}
-#playPauseBtn:hover {
-    transform: translateY(-2px) translateX(2px);
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
 .back-button {
     position: fixed;
     top: 20px;
@@ -117,137 +106,60 @@ body {
     text-decoration: none;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    outline: none !important;
+    transition: transform 0.2s ease;
+}
+.back-button:active {
+    transform: translateY(1px);
+}
+.back-button:focus {
+    outline: none;
+}
+.back-button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 125, 158, 0.6);
 }
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* Lightbox Gallery Styles (Smooth Animation & No Arrows, Black-Pink Border) */
-.hidden {
-    display: none !important;
-}
-
-#lightbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    backdrop-filter: blur(8px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-#lightbox-overlay.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-#lightbox {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    background: transparent;
-    padding: 0;
-    border-radius: 15px;
-    box-shadow: none;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 95vw;
-    max-height: 95vh;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-}
-#lightbox.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.lightbox-image {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 25px;
-    object-fit: contain;
-    
-    box-shadow: 0 0 15px rgba(255,125,158,0.7), 0 0 25px rgba(0,0,0,0.6);
-    filter: drop-shadow(0 0 10px rgba(255,125,158,0.5))
-            drop-shadow(0 0 20px rgba(0,0,0,0.4));
-    
-    cursor: grab;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-.lightbox-image.dragging {
-    cursor: grabbing;
-    transform: scale(1.01);
-    box-shadow: 0 0 20px rgba(255,125,158,0.8), 0 0 30px rgba(0,0,0,0.7);
-    filter: drop-shadow(0 0 15px rgba(255,125,158,0.7))
-            drop-shadow(0 0 25px rgba(0,0,0,0.6));
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2.5rem;
-    color: #ff7d9e;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
+/* --- สไตล์ปุ่ม Play/Pause แบบใหม่ (SVG Morphing) --- */
+#playPauseBtn {
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease;
-}
-.close-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-}
-
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
     border: none;
-    color: #ff7d9e;
-    font-size: 2.5rem;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: white;
     cursor: pointer;
-    transition: background 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 30px;
+    align-items: center;
 }
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
+#playPauseBtn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
 }
-
-.prev-btn {
-    left: 0;
+#playPauseBtn:active {
+    transform: scale(1); /* ทำให้ปุ่มกลับมาขนาดเดิมตอนกด */
 }
-.next-btn {
-    right: 0;
+#playPauseBtn:focus {
+    outline: none;
 }
-
-@media (max-width: 768px) {
-    .close-btn {
-        top: 10px;
-        right: 10px;
-        font-size: 2rem;
-        width: 40px;
-        height: 40px;
-    }
+#playPauseBtn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 125, 158, 0.6);
+}
+.play-pause-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+.icon-shape {
+    d: path('M8 5V19L19 12L8 5Z');
+    transition: d 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#playPauseBtn.playing .icon-shape {
+    d: path('M6 5H9V19H6V5ZM15 5H18V19H15V5Z');
 }

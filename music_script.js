@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Elements ของเครื่องเล่นเพลง
     const audioPlayer = document.getElementById('audioPlayer');
-    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseBtn = document.getElementById('playPauseBtn'); // <-- ปุ่มตัวใหม่ของคุณ
     const vinylRecord = document.querySelector('.vinyl-record');
     const progressBarContainer = document.querySelector('.progress-bar-container');
     const progressBar = document.querySelector('.progress-bar');
@@ -29,21 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // ตัวแปรสำหรับตรวจจับการปัด (Swipe)
     let touchStartX = 0;
     let touchEndX = 0;
-    const minSwipeDistance = 50; // ระยะปัดขั้นต่ำที่ถือว่าเป็นการ swipe
+    const minSwipeDistance = 50;
 
-    // ฟังก์ชันสำหรับควบคุมการเล่นเพลง
-    function togglePlayPause() {
-        if (audioPlayer.paused) {
+    // --- ส่วนที่แก้ไข: เปลี่ยนการควบคุมปุ่ม Play/Pause ---
+    // ผมได้ลบฟังก์ชัน togglePlayPause() เดิมออก แล้วแทนที่ด้วยโค้ดชุดใหม่นี้
+    
+    playPauseBtn.addEventListener('click', () => {
+        // .toggle('playing') จะเพิ่ม/ลบ class 'playing' ออกจากปุ่ม
+        // และจะคืนค่า true ถ้าเพิ่ม class, false ถ้าลบ class
+        const isPlaying = playPauseBtn.classList.toggle('playing');
+
+        if (isPlaying) {
+            // ถ้าปุ่มมี class 'playing' (ไอคอนเป็น Pause)
             audioPlayer.play();
-            playPauseBtn.textContent = '❚❚';
-            vinylRecord.classList.add('playing');
+            vinylRecord.classList.add('playing'); // ทำให้แผ่นเสียงหมุน
         } else {
+            // ถ้าปุ่มไม่มี class 'playing' (ไอคอนเป็น Play)
             audioPlayer.pause();
-            playPauseBtn.textContent = '►';
-            vinylRecord.classList.remove('playing');
+            vinylRecord.classList.remove('playing'); // ทำให้แผ่นเสียงหยุด
         }
-    }
-    playPauseBtn.addEventListener('click', togglePlayPause);
+    });
+    // --- สิ้นสุดส่วนที่แก้ไข ---
+
 
     audioPlayer.addEventListener('loadedmetadata', () => {
         durationEl.textContent = formatTime(audioPlayer.duration);
@@ -92,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             lightboxOverlay.classList.add('hidden');
             lightbox.classList.add('hidden');
-        }, 300); // 300ms คือระยะเวลา transition ใน CSS
+        }, 300);
     }
 
     // ฟังก์ชันสำหรับเปลี่ยนรูปภาพใน Lightbox (ซ้าย/ขวา)
-    function changeImage(direction) { // direction: 1 for next, -1 for prev
+    function changeImage(direction) {
         currentImageIndex = (currentImageIndex + direction + momentImages.length) % momentImages.length;
         lightboxImage.src = momentImages[currentImageIndex];
     }
@@ -104,17 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // เมื่อคลิกที่รูปภาพ album-art จะเปิด Lightbox Gallery
     albumArt.addEventListener('click', (e) => {
         e.stopPropagation();
-        showLightbox(0); // แสดงรูปแรกใน momentImages
+        showLightbox(0);
     });
 
     // Event listeners สำหรับการควบคุม Lightbox
     closeBtn.addEventListener('click', hideLightbox);
-    lightboxOverlay.addEventListener('click', hideLightbox); // คลิกที่ overlay เพื่อปิด
+    lightboxOverlay.addEventListener('click', hideLightbox);
 
     // ------------------ Swipe Gestures ------------------
     lightboxImage.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
-        lightboxImage.classList.add('dragging'); // เพิ่มคลาสเพื่อเปลี่ยน cursor
+        lightboxImage.classList.add('dragging');
     });
 
     lightboxImage.addEventListener('touchmove', (e) => {
@@ -122,7 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     lightboxImage.addEventListener('touchend', () => {
-        lightboxImage.classList.remove('dragging'); // ลบคลาสเมื่อเลิกปัด
+        lightboxImage.classList.remove('dragging');
+
         handleSwipe();
     });
 
@@ -146,11 +154,11 @@ document.addEventListener('DOMContentLoaded', () => {
         handleSwipe();
     });
 
-    lightboxImage.addEventListener('mouseleave', () => { // กรณีเมาส์ออกนอกรูปขณะลาก
+    lightboxImage.addEventListener('mouseleave', () => {
         if (!isMouseDown) return;
         isMouseDown = false;
         lightboxImage.classList.remove('dragging');
-        // ไม่ต้อง handleSwipe() เพราะอาจจะไม่ได้ตั้งใจเลื่อนรูป
+
     });
 
 
@@ -158,13 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const swipeDistance = touchEndX - touchStartX;
 
         if (swipeDistance > minSwipeDistance) {
-            // Swipe Right (เลื่อนไปรูปก่อนหน้า)
             changeImage(-1);
         } else if (swipeDistance < -minSwipeDistance) {
-            // Swipe Left (เลื่อนไปรูปถัดไป)
             changeImage(1);
         }
-        // รีเซ็ตค่า
+        
         touchStartX = 0;
         touchEndX = 0;
     }

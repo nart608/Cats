@@ -129,3 +129,35 @@ body.fade-out {
         opacity: 0;
     }
 }
+/* --- เพิ่มเอฟเฟกต์ให้ปุ่ม Start --- */
+.start-button:focus {
+    outline: none;
+}
+
+.start-button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 125, 158, 0.6);
+}
+
+.start-button:active {
+    transform: translateX(-50%) translateY(2px); /* ทำให้ปุ่มขยับลงตอนกด */
+}
+/* --- โค้ดสำหรับแก้ปัญหาสีฟ้าที่ปุ่ม Start (ฉบับสมบูรณ์) --- */
+
+/* 1. ปิดสีฟ้ากระพริบตอนกด (สำคัญที่สุด) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. จัดการสไตล์ของปุ่ม Start ตอนกดและตอนใช้คีย์บอร์ด */
+.start-button:focus {
+    outline: none;
+}
+
+.start-button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 125, 158, 0.6);
+}
+
+.start-button:active {
+    transform: translateX(-50%) translateY(2px);
+    outline: none; /* เพิ่มตรงนี้อีกครั้งเพื่อความชัวร์ */
+}

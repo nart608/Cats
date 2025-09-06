@@ -54,3 +54,20 @@ body {
     font-size: 0.8rem;
     color: #c48c9e;
 }
+/* --- Code Enhancements (page3_style.css) --- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-item:active {
+    transform: scale(0.97) translateY(1px); /* รวมเอฟเฟกต์กดจมเข้าไป */
+    outline: none;
+}
+
+.menu-item:focus {
+    outline: none;
+}
+
+.menu-item:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 125, 158, 0.6);
+}

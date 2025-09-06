@@ -167,3 +167,21 @@ body {
         opacity: 0;
     }
 }
+/* --- Code Enhancements (page2_style.css) --- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.key {
+    transition: background-color 0.2s, transform 0.2s;
+}
+.key:active {
+    background-color: #ffe8ee;
+    transform: scale(0.97) translateY(1px);
+    outline: none;
+}
+.key:focus {
+    outline: none;
+}
+.key:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 125, 158, 0.7);
+}
